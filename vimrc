@@ -315,9 +315,9 @@ autocmd CmdwinEnter * nnoremap <buffer> <CR> <CR>
 "" inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 " 打开自动定位到最后编辑的位置, 需要确认 .viminfo 当前用户可写
-"" if has("autocmd")
-""   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-"" endif
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 "==========================================
 " HotKey Settings  自定义快捷键设置
@@ -384,11 +384,11 @@ inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 
 
-" 分屏窗口移动, Smart way to move between windows
-"" map <C-j> <C-W>j
-"" map <C-k> <C-W>k
-"" map <C-h> <C-W>h
-"" map <C-l> <C-W>l
+"分屏窗口移动, Smart way to move between windows
+"map <C-j> <C-W>h
+"map <C-k> <C-W>i
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 
 " http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
@@ -410,7 +410,7 @@ nnoremap <silent> <Leader>z :ZoomToggle<CR>
 
 " Go to home and end using capitalized directions
 noremap H ^
-noremap L $
+noremap L A
 
 
 " Map ; to : and save a million keystrokes 用于快速进入命令行
@@ -657,8 +657,8 @@ endif
 set background=dark
 set t_Co=256
 
-colorscheme solarized
-" colorscheme molokai
+"colorscheme solarized
+colorscheme molokai
 
 
 " 设置标记一列的背景颜色和数字一行颜色一致
@@ -675,3 +675,7 @@ colorscheme solarized
 "" highlight SpellRare term=underline cterm=underline
 "" highlight clear SpellLocal
 "" highlight SpellLocal term=underline cterm=underline
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+nmap <c-n> :%s/\s\+$//ge<cr>
+
