@@ -254,10 +254,8 @@ The End!
 
 wklken (凌岳/pythoner/vim党预备党员)
 
-Github: https://github.com/wklken
+Github: https://github.com/liuchaowd
 
-Blog: [http://www.wklken.me](http://www.wklken.me)
-
-2013-06-11 于深圳
+2017-09-19 于深圳
 
 
